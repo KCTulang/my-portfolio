@@ -2,7 +2,12 @@
 
 :root {
 	--background: #171717;
-	--foreground: #ffffff;
+	--foreground: #fffffa;
+	--color-rich-black: #080705;
+	--color-charcoal: #40434e;
+	--color-ruby: #702632;
+	--color-crimson: #912f40;
+	--color-ivory: #fffffa;
 }
 
 @layer utilities {
@@ -24,7 +29,7 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #ededed;
+		--background: #fffffa;
 		--foreground: #0a0a0a;
 	}
 }
