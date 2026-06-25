@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function Footer() {
 	return (
-		<footer className="bg-[--color-ivory] text-[--color-rich-black] px-8 md:px-16 lg:px-24 py-10 shadow-[0_-8px_10px_rgb(0,0,0,0.10)]">
+		<footer className="bg-(--color-ivory) text-(--color-rich-black) px-8 md:px-16 lg:px-24 py-10 shadow-[0_-8px_10px_rgb(0,0,0,0.10)]">
 			<div className="max-w-5xl mx-auto w-full">
 				<div className="flex flex-col md:flex-row items-start justify-between gap-8">
 					<div className="space-y-2 max-w-sm">
 						<Link
 							href="/"
-							className="text-xs font-bold tracking-[0.2em] uppercase text-[--color-rich-black] hover:text-[#912F40] transition-colors duration-300"
+							className="text-xs font-bold tracking-[0.2em] uppercase text-(--color-rich-black) hover:text-(--color-crimson) transition-colors duration-300"
 						>
 							Kenneth Claire Tulang
 						</Link>
@@ -18,7 +18,7 @@ export default function Footer() {
 						</p>
 					</div>
 					<div className="space-y-2">
-						<p className="text-xs font-bold tracking-[0.2em] uppercase text-[#912F40]">
+						<p className="text-xs font-bold tracking-[0.2em] uppercase text-(--color-crimson)">
 							Find me on
 						</p>
 						<ul className="space-y-2">
@@ -32,7 +32,7 @@ export default function Footer() {
 										href={item.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-sm text-[--color-charcoal] hover:text-[#912F40] transition-colors duration-300"
+										className="text-sm text-[--color-charcoal] hover:text-(--color-crimson) transition-colors duration-300"
 									>
 										{item.label} →
 									</Link>
@@ -49,11 +49,11 @@ export default function Footer() {
 					</p>
 					<p className="text-xs text-[--color-charcoal]">
 						Built with{" "}
-						<span className="font-semibold text-[--color-rich-black]">
+						<span className="font-semibold text-(--color-rich-black)">
 							Next.js
 						</span>{" "}
 						&{" "}
-						<span className="font-semibold text-[--color-rich-black]">
+						<span className="font-semibold text-(--color-rich-black)">
 							Tailwind CSS
 						</span>
 					</p>

@@ -30,7 +30,7 @@ export default function Navbar() {
 			}`}
 		>
 			<nav
-				className={`flex w-full flex-col md:flex-row items-center justify-between text-[--color-rich-black] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-[#fffffa] ${
+				className={`flex w-full flex-col md:flex-row items-center justify-between text-(--color-rich-black) transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-(--color-ivory) ${
 					isScrolled
 						? "rounded-3xl px-6 py-3 shadow-[0_2px_8px_rgb(0,0,0,0.40)]"
 						: "px-8 py-4 shadow-[0_2px_4px_rgb(0,0,0,0.40)]"
@@ -46,11 +46,11 @@ export default function Navbar() {
 						}}
 						className="text-xs font-bold tracking-[0.2em] uppercase"
 					>
-						KC TULANG
+						KC<span className="text-(--color-crimson)">.</span>Dev
 					</Link>
 					<button
 						type="button"
-						className="md:hidden p-1 text-[--color-rich-black]"
+						className="md:hidden p-1 text-(--color-rich-black)"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 					>
 						{isMenuOpen ? "✕" : "☰"}
@@ -75,8 +75,8 @@ export default function Navbar() {
 									onClick={() => setIsMenuOpen(false)}
 									className={`block px-4 py-2 text-xs uppercase tracking-widest transition-all duration-300 ease-in-out ${
 										isActive
-											? "font-bold text-[#912F40] bg-[#912F40]/10 rounded-full"
-											: "font-bold text-[--color-charcoal] hover:bg-[#912F40]/10 hover:text-[#912F40] rounded-full"
+											? "font-bold text-(--color-crimson) bg-(--color-crimson)/10 rounded-full"
+											: "font-bold text-[--color-charcoal] hover:bg-(--color-crimson)/10 hover:text-(--color-crimson) rounded-full"
 									}`}
 								>
 									{item.name}
@@ -85,25 +85,25 @@ export default function Navbar() {
 						);
 					})}
 
-					{/* Mobile-only CTA 
+					{/* Mobile-only CTA */}
 					<Link
 						href="/contact"
-						className="md:hidden mt-4 bg-[#912F40] text-white px-6 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-md"
+						className="md:hidden mt-4 bg-(--color-crimson) text-white px-6 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-md"
 						onClick={() => setIsMenuOpen(false)}
 					>
 						View Resume
-					</Link>*/}
+					</Link>
 				</div>
 
-				{/* Desktop CTA 
+				{/* Desktop CTA */}
 				<div className="hidden md:block">
 					<Link
 						href="/contact"
-						className="bg-[--color-rich-black] text-[--color-ivory] px-5 py-2.5 text-xs font-bold tracking-widest uppercase rounded-full hover:bg-[#912F40] hover:text-white transition-all duration-300"
+						className="bg-(--color-rich-black) text-(--color-ivory) px-5 py-2.5 text-xs font-bold tracking-widest uppercase rounded-full hover:bg-(--color-crimson) hover:text-white transition-all duration-300"
 					>
 						View Resume
 					</Link>
-				</div> */}
+				</div>
 			</nav>
 		</header>
 	);
