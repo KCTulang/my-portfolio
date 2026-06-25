@@ -46,7 +46,9 @@ export default function Navbar() {
 						}}
 						className="text-xs font-bold tracking-[0.2em] uppercase"
 					>
-						KC<span className="text-(--color-crimson)">.</span>Dev
+						<span className="hover:text-(--color-crimson) transition-colors duration-500">
+							KC Tulang
+						</span>
 					</Link>
 					<button
 						type="button"
@@ -91,7 +93,7 @@ export default function Navbar() {
 						className="md:hidden mt-4 bg-(--color-crimson) text-white px-6 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-md"
 						onClick={() => setIsMenuOpen(false)}
 					>
-						View Resume
+						Button Here
 					</Link>
 				</div>
 
@@ -101,7 +103,7 @@ export default function Navbar() {
 						href="/contact"
 						className="bg-(--color-rich-black) text-(--color-ivory) px-5 py-2.5 text-xs font-bold tracking-widest uppercase rounded-full hover:bg-(--color-crimson) hover:text-white transition-all duration-300"
 					>
-						View Resume
+						Button Here
 					</Link>
 				</div>
 			</nav>
