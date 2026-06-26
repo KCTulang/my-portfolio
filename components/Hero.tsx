@@ -22,7 +22,7 @@ export const Hero = () => {
 									Eager to build great things.
 								</h1>
 							</div>
-							\
+
 							<div className="flex items-start gap-6 max-w-xl">
 								<div className="w-px h-16 bg-(--color-crimson)/40 shrink-0 mt-1" />
 								<p className="text-base md:text-lg text-[--color-charcoal] leading-relaxed">
