@@ -18,14 +18,14 @@ export default function Navbar() {
 	}, []);
 
 	const navLinks = [
-		{ name: "Projects", path: "/projects" },
 		{ name: "About Me", path: "/about" },
+		{ name: "Projects", path: "/projects" },
 		{ name: "Contact", path: "/contact" },
 	];
 
 	return (
 		<header
-			className={`fixed left-0 right-0 z-50 mx-auto flex justify-center will-change-transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+			className={`fixed left-0 right-0 z-80 mx-auto flex justify-center will-change-transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
 				isScrolled ? "top-6 w-[calc(100%-2rem)] max-w-4xl" : "top-0 w-full"
 			}`}
 		>

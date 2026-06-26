@@ -1,11 +1,15 @@
 import { Hero } from "@/components/Hero";
 
-export default function Home() {
+export default async function Home() {
+	await new Promise((resolve) => {
+		setTimeout(() => {
+			resolve("intentional delay");
+		}, 2000);
+	});
+
 	return (
-		<main className="relative bg-ivory-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-			<div className="max-w-7xl w-full">
-				<Hero />
-			</div>
-		</main>
+		<div>
+			<Hero />
+		</div>
 	);
 }
