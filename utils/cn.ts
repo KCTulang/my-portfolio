@@ -7,7 +7,7 @@ type ClassValue =
 	| null
 	| undefined
 	| ClassValue[]
-	| Record<string, any>;
+	| Record<string, unknown>;
 
 function clsx(...inputs: ClassValue[]): string {
 	return inputs
