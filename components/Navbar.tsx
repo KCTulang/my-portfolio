@@ -18,9 +18,9 @@ export default function Navbar() {
 	}, []);
 
 	const navLinks = [
-		{ name: "About Me", path: "/about" },
+		{ name: "About", path: "/about" },
 		{ name: "Projects", path: "/projects" },
-		{ name: "Contact ME", path: "/contact" },
+		{ name: "Contact Me", path: "/contact" },
 	];
 
 	return (
