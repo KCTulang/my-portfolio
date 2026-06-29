@@ -1,7 +1,187 @@
-export default function ProjectsPage() {
+import Image from "next/image";
+
+import {
+	CarouselControls,
+	ProgressPills,
+	RevealCurtain,
+	SlideTransition,
+} from "@/components/ShowcaseClient";
+import { Button } from "@/components/ui/button";
+
+interface Project {
+	id: string;
+	name: string;
+	description: string;
+	tags: string[];
+	images: string[];
+}
+
+const projects: Project[] = [
+	{
+		id: "labpup",
+		name: "LabPUP",
+		description:
+			"A web-based laboratory scheduling and management system developed for the PUP College of Computer and Information Sciences to streamline room reservations, track device operability, and handle automated malfunction reporting.",
+		tags: ["CSS", "HTML", "JavaScript", "MySQL", "PHP"],
+		images: ["/Projects/LabPUP1.png"],
+	},
+	{
+		id: "lp",
+		name: "licenSUREpro",
+		description:
+			"A web-based licensing application management system designed for the Professional Regulation Commission (PRC) to digitize board exam application forms, manage examinee profiles, and provide lookup directories for school and course routing keys.",
+		tags: ["CSS", "HTML", "JavaScript", "MySQL", "PHP"],
+		images: ["/Projects/LP1.png"],
+	},
+	{
+		id: "ms",
+		name: "MindSweeper Kitties",
+		description:
+			"A competitive grid deduction game that introduces a strategic twist to classic board mechanics. Facing an adaptive AI powered by belief-state search algorithms, players calculate real-time safety probabilities to uncover objectives and maximize scores.",
+		tags: ["Flask", "HTML", "JavaScript", "Python"],
+		images: ["/Projects/MS1.png"],
+	},
+	{
+		id: "pluma",
+		name: "Pluma",
+		description:
+			"An intelligent Grammar Error Correction (GEC) system designed specifically for the Filipino language. Utilizing tailored sequence-to-sequence neural network architectures and strategic data augmentation, the model architecture automates the identification and correction of localized syntactic anomalies and contextual stylistic inconsistencies.",
+		tags: ["Machine Learning", "NLP", "NMT", "Python", "PyTorch"],
+		images: ["/Projects/Pluma1.png"],
+	},
+	{
+		id: "pt",
+		name: "Philippine Tourism Proposed UI",
+		description:
+			"A high-fidelity Figma interface conceptualization for the Department of Tourism (DOT) website. Engineered around modern accessibility heuristics (WCAG) and progressive discovery layout hierarchies, the system embeds interactive asset maps and modular content sections to elevate local heritage discoverability.",
+		tags: ["Figma", "UI/UX", "Wireframing"],
+		images: ["/Projects/PT1.png"],
+	},
+];
+
+interface PageProps {
+	searchParams: Promise<{ active?: string }>;
+}
+
+export default async function ProjectsPage({ searchParams }: PageProps) {
+	const params = await searchParams;
+	const currentIndex = Number(params.active) || 0;
+	const currentProject = projects[currentIndex] || projects[0];
+	const projectIds = projects.map((p) => p.id);
+
 	return (
-		<div>
-			<p> This is projects page</p>
-		</div>
+		<main className="min-h-screen w-full bg-(--color-ivory) relative select-none flex flex-col justify-between pt-32 pb-16">
+			<header className="w-full max-w-362.5 mx-auto px-6 sm:px-10 md:px-16 lg:px-24 mb-6 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+				<div className="max-w-2xl">
+					<p className="text-[10px] font-bold tracking-[0.3em] uppercase text-(--color-crimson) mb-2">
+						Selected Works
+					</p>
+					<h1 className="text-4xl sm:text-6xl font-black text-(--color-rich-black) tracking-tight leading-none">
+						Things I&apos;ve{" "}
+						<span className="text-(--color-crimson)">built</span>
+					</h1>
+				</div>
+				<p className="text-sm text-(--color-charcoal) opacity-80 max-w-sm text-left md:text-right font-medium leading-relaxed">
+					A collection of applications, academic research systems, and design
+					experiments I have developed throughout my computer science journey.
+				</p>
+			</header>
+
+			<div className="w-full flex-1 flex flex-col items-center justify-center px-4 sm:px-12 md:px-24 max-w-375 mx-auto relative my-6">
+				<div className="w-full flex justify-center items-center mb-6 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-(--color-charcoal)/60 px-2">
+					<div className="flex items-center gap-4 sm:gap-8">
+						<span className="flex items-center gap-2.5">
+							<span className="px-2.5 py-1 border border-(--color-charcoal)/20 rounded-md bg-white shadow-sm font-bold">
+								Hover
+							</span>{" "}
+							Frame for details
+						</span>
+						<span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-(--color-crimson)/40" />
+						<span className="flex items-center gap-2.5">
+							<span className="flex gap-1">
+								<span className="px-2 py-1 border border-(--color-charcoal)/20 rounded-md bg-white shadow-sm font-bold">
+									←
+								</span>
+								<span className="px-2 py-1 border border-(--color-charcoal)/20 rounded-md bg-white shadow-sm font-bold">
+									→
+								</span>
+							</span>
+							To navigate
+						</span>
+					</div>
+				</div>
+
+				<div className="relative w-full rounded-3xl p-1 bg-linear-to-b from-black/5 to-black/10 shadow-[0_40px_80px_rgba(0,0,0,0.06)] hover:from-(--color-crimson)/20 hover:to-(--color-crimson)/30 transition-all duration-500 group/frame">
+					<div className="relative w-full aspect-192/100 rounded-[1.4rem] overflow-hidden bg-(--color-rich-black) group shadow-inner">
+						<SlideTransition currentIndex={currentIndex} direction={1}>
+							<Image
+								src={currentProject.images[0]}
+								alt={`${currentProject.name} layout`}
+								fill
+								priority
+								className="object-cover transition-transform duration-700 ease-out group-hover/frame:scale-101"
+							/>
+
+							<RevealCurtain>
+								<div className="space-y-1">
+									<span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em] block">
+										Project Core Overview
+									</span>
+									<h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+										{currentProject.name}
+									</h2>
+								</div>
+
+								<p className="text-sm sm:text-base leading-relaxed text-white font-medium text-justify max-w-lg">
+									{currentProject.description}
+								</p>
+
+								<div className="flex gap-1.5 flex-wrap pt-2">
+									{currentProject.tags.map((tag) => (
+										<span
+											key={tag}
+											className="text-[10px] px-3 py-1 rounded-md bg-(--color-crimson) text-white font-bold uppercase tracking-wider"
+										>
+											{tag}
+										</span>
+									))}
+								</div>
+
+								<div className="pt-6">
+									<Button
+										asChild
+										variant="link"
+										className="text-xs font-black tracking-[0.2em] uppercase text-white hover:text-white/80 p-0 h-auto transition-all duration-300 group/link inline-flex items-center gap-2 cursor-pointer relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-white after:scale-x-100 hover:after:scale-x-75 after:transition-transform after:duration-300 after:origin-left"
+									>
+										<a href={`/projects/${currentProject.id}`}>
+											View Full Details
+											<span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
+												→
+											</span>
+										</a>
+									</Button>
+								</div>
+							</RevealCurtain>
+						</SlideTransition>
+					</div>
+
+					<CarouselControls
+						currentIndex={currentIndex}
+						total={projects.length}
+						projectIds={projectIds}
+					/>
+				</div>
+
+				<div className="w-full flex items-center justify-between mt-6 text-xs font-bold uppercase tracking-widest text-(--color-charcoal)/50 px-2">
+					<div>
+						<span className="text-(--color-crimson) font-mono text-sm font-bold">
+							{String(currentIndex + 1).padStart(2, "0")}
+						</span>{" "}
+						/ {String(projects.length).padStart(2, "0")}
+					</div>
+					<ProgressPills currentIndex={currentIndex} projectIds={projectIds} />
+				</div>
+			</div>
+		</main>
 	);
 }

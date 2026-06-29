@@ -31,7 +31,7 @@ export const Hero = () => {
 									time.
 								</p>
 							</div>
-							<div className="flex flex-wrap items-center gap-2">
+							<div className="flex flex-wrap items-center gap-1">
 								<Link
 									href="/projects"
 									className="group relative overflow-hidden bg-(--color-rich-black) text-(--color-ivory) px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:shadow-[0_8px_24px_rgb(0,0,0,0.2)] hover:scale-[1.02] active:scale-[0.98]"

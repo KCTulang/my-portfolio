@@ -20,7 +20,7 @@ export default function Navbar() {
 	const navLinks = [
 		{ name: "About Me", path: "/about" },
 		{ name: "Projects", path: "/projects" },
-		{ name: "Contact", path: "/contact" },
+		{ name: "Contact ME", path: "/contact" },
 	];
 
 	return (
@@ -86,25 +86,6 @@ export default function Navbar() {
 							</div>
 						);
 					})}
-
-					{/* Mobile-only CTA */}
-					<Link
-						href="/contact"
-						className="md:hidden mt-4 bg-(--color-crimson) text-white px-6 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-md"
-						onClick={() => setIsMenuOpen(false)}
-					>
-						Button Here
-					</Link>
-				</div>
-
-				{/* Desktop CTA */}
-				<div className="hidden md:block">
-					<Link
-						href="/contact"
-						className="bg-(--color-rich-black) text-(--color-ivory) px-5 py-2.5 text-xs font-bold tracking-widest uppercase rounded-full hover:bg-(--color-crimson) hover:text-white transition-all duration-300"
-					>
-						Button Here
-					</Link>
 				</div>
 			</nav>
 		</header>
