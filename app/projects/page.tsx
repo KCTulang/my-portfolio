@@ -88,16 +88,16 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
 			</header>
 
 			<div className="w-full flex-1 flex flex-col items-center justify-center px-4 sm:px-12 md:px-24 max-w-375 mx-auto relative my-6">
-				<div className="w-full flex justify-center items-center mb-6 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-(--color-charcoal)/60 px-2">
+				<div className="w-full flex justify-center items-center mb-6 text-[10px] sm:text-xs font-mono uppercase tracking-tight text-(--color-charcoal)/60 px-2">
 					<div className="flex items-center gap-4 sm:gap-8">
 						<span className="flex items-center gap-2.5">
-							<span className="px-2.5 py-1 border border-(--color-charcoal)/20 rounded-md bg-white shadow-sm font-bold">
+							<span className="px-2.5 py-1 border border-(--color-charcoal)/20 tracking-tight rounded-md bg-white shadow-sm font-bold">
 								Hover
 							</span>{" "}
 							Frame for details
 						</span>
 						<span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-(--color-crimson)/40" />
-						<span className="flex items-center gap-2.5">
+						<span className="flex items-center gap-2.5 tracking-tight">
 							<span className="flex gap-1">
 								<span className="px-2 py-1 border border-(--color-charcoal)/20 rounded-md bg-white shadow-sm font-bold">
 									←
