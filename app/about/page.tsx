@@ -66,7 +66,10 @@ export default async function AboutPage() {
 								Current Role
 							</p>
 							<p className="text-m font-semibold tracking-tight opacity-90">
-								SWE Intern @ Stratpoint
+								Software Engineer Intern
+							</p>
+							<p className="text-xs font-bold uppercase tracking-tight opacity-50 mb-1">
+								Stratpoint
 							</p>
 						</div>
 					</div>
