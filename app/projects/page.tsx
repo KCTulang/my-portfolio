@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { Suspense } from "react";
 import {
 	CarouselControls,
 	ProgressPills,
@@ -7,6 +7,8 @@ import {
 	SlideTransition,
 } from "@/components/ShowcaseClient";
 import { Button } from "@/components/ui/button";
+
+import ProjectSkeleton from "./loading";
 
 interface Project {
 	id: string;
@@ -21,7 +23,7 @@ const projects: Project[] = [
 		id: "labpup",
 		name: "LabPUP",
 		description:
-			"A web-based laboratory scheduling and management system developed for the PUP College of Computer and Information Sciences to streamline room reservations, track device operability, and handle automated malfunction reporting.",
+			"A web-based laboratory scheduling and management system developed for the PUP College of Computer and Information Sciences...",
 		tags: ["CSS", "HTML", "JavaScript", "MySQL", "PHP"],
 		images: ["/Projects/LabPUP1.png"],
 	},
@@ -29,7 +31,7 @@ const projects: Project[] = [
 		id: "lp",
 		name: "licenSUREpro",
 		description:
-			"A web-based licensing application management system designed for the Professional Regulation Commission (PRC) to digitize board exam application forms, manage examinee profiles, and provide lookup directories for school and course routing keys.",
+			"A web-based licensing application management system designed for the Professional Regulation Commission (PRC)...",
 		tags: ["CSS", "HTML", "JavaScript", "MySQL", "PHP"],
 		images: ["/Projects/LP1.png"],
 	},
@@ -37,7 +39,7 @@ const projects: Project[] = [
 		id: "ms",
 		name: "MindSweeper Kitties",
 		description:
-			"A competitive grid deduction game that introduces a strategic twist to classic board mechanics. Facing an adaptive AI powered by belief-state search algorithms, players calculate real-time safety probabilities to uncover objectives and maximize scores.",
+			"A competitive grid deduction game that introduces a strategic twist to classic board mechanics...",
 		tags: ["Flask", "HTML", "JavaScript", "Python"],
 		images: ["/Projects/MS1.png"],
 	},
@@ -45,7 +47,7 @@ const projects: Project[] = [
 		id: "pluma",
 		name: "Pluma",
 		description:
-			"An intelligent Grammar Error Correction (GEC) system designed specifically for the Filipino language. Utilizing tailored sequence-to-sequence neural network architectures and strategic data augmentation, the model architecture automates the identification and correction of localized syntactic anomalies and contextual stylistic inconsistencies.",
+			"An intelligent Grammar Error Correction (GEC) system designed specifically for the Filipino language...",
 		tags: ["Machine Learning", "NLP", "NMT", "Python", "PyTorch"],
 		images: ["/Projects/Pluma1.png"],
 	},
@@ -53,7 +55,7 @@ const projects: Project[] = [
 		id: "pt",
 		name: "Philippine Tourism Proposed UI",
 		description:
-			"A high-fidelity Figma interface conceptualization for the Department of Tourism (DOT) website. Engineered around modern accessibility heuristics (WCAG) and progressive discovery layout hierarchies, the system embeds interactive asset maps and modular content sections to elevate local heritage discoverability.",
+			"A high-fidelity Figma interface conceptualization for the Department of Tourism (DOT) website...",
 		tags: ["Figma", "UI/UX", "Wireframing"],
 		images: ["/Projects/PT1.png"],
 	},
@@ -63,11 +65,21 @@ interface PageProps {
 	searchParams: Promise<{ active?: string }>;
 }
 
-export default async function ProjectsPage({ searchParams }: PageProps) {
+export default function ProjectsPage({ searchParams }: PageProps) {
+	return (
+		<Suspense fallback={<ProjectSkeleton />}>
+			<ProjectsContent searchParams={searchParams} />
+		</Suspense>
+	);
+}
+
+async function ProjectsContent({ searchParams }: PageProps) {
 	const params = await searchParams;
 	const currentIndex = Number(params.active) || 0;
 	const currentProject = projects[currentIndex] || projects[0];
 	const projectIds = projects.map((p) => p.id);
+
+	await new Promise((resolve) => setTimeout(resolve, 500));
 
 	return (
 		<main className="min-h-screen w-full bg-(--color-ivory) relative select-none flex flex-col justify-between pt-32 pb-16">
