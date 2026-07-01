@@ -1,88 +1,58 @@
-export default function ProjectSkeleton() {
-	const placeholderTags = ["tag-1", "tag-2", "tag-3", "tag-4"];
-	const placeholderScreens = [
-		"screen-1",
-		"screen-2",
-		"screen-3",
-		"screen-4",
-		"screen-5",
-	];
-	const placeholderDots = ["dot-1", "dot-2", "dot-3", "dot-4", "dot-5"];
+export default function AboutSkeleton() {
+	const infoPills = ["pill-1", "pill-2", "pill-3", "pill-4"];
 
 	return (
-		<main className="min-h-screen w-full bg-(--color-ivory) relative select-none flex flex-col justify-between pt-32 pb-16 animate-pulse">
-			<header className="w-full max-w-362.5 mx-auto px-6 sm:px-10 md:px-16 lg:px-24 mb-6 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-				<div className="max-w-2xl space-y-3">
-					<div className="h-2.5 w-32 rounded-full bg-(--color-charcoal)/15" />
-					<div className="h-10 sm:h-14 w-72 sm:w-96 rounded-lg bg-(--color-charcoal)/10" />
+		<section className="min-h-screen bg-(--color-ruby) w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center select-none animate-pulse">
+			<div className="w-full relative flex flex-col items-center gap-8 mt-10 z-10 px-4 lg:block lg:max-w-[1600px] lg:h-187.5 xl:h-225 lg:mx-auto lg:mt-0 xl:px-16 lg:gap-0">
+				<div className="relative order-first lg:absolute lg:order-0 z-0 flex w-full justify-center lg:justify-end mt-4 mb-2 lg:mt-0 lg:mb-0 lg:right-4 xl:right-10 lg:top-5 lg:w-auto">
+					<div className="h-[clamp(3.5rem,14vw,6rem)] lg:h-[clamp(4.5rem,11.5vw,12rem)] w-[60vw] lg:w-100 xl:w-150 bg-white/10 rounded-xl transform scale-y-120 origin-bottom" />
 				</div>
-				<div className="flex flex-col gap-2 max-w-sm w-full md:items-end">
-					<div className="h-3 w-full rounded-full bg-(--color-charcoal)/10" />
-					<div className="h-3 w-5/6 rounded-full bg-(--color-charcoal)/10" />
-					<div className="h-3 w-2/3 rounded-full bg-(--color-charcoal)/10" />
-				</div>
-			</header>
 
-			<div className="w-full flex-1 flex flex-col items-center justify-center px-4 sm:px-12 md:px-24 max-w-375 mx-auto relative my-6">
-				<div className="w-full flex justify-center items-center mb-6 px-2">
-					<div className="flex items-center gap-4 sm:gap-8">
-						<div className="h-6 w-36 rounded-md bg-(--color-charcoal)/10" />
-						<span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-(--color-crimson)/20" />
-						<div className="h-6 w-28 rounded-md bg-(--color-charcoal)/10" />
+				<div className="order-1 relative w-[70vw] max-w-75 aspect-4/5 lg:order-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:bottom-0 lg:top-15 lg:z-20 lg:w-[32vw] xl:w-[38vw] 2xl:w-[40vw] lg:max-w-150 lg:-ml-2 xl:-ml-5 lg:aspect-auto bg-white/10 rounded-2xl lg:rounded-t-[3rem] lg:rounded-b-none" />
+
+				<div className="contents lg:absolute lg:right-4 xl:right-10 lg:top-60 xl:top-80 lg:z-30 lg:flex lg:w-full lg:max-w-75 xl:max-w-105 2xl:max-w-125 lg:flex-col lg:gap-4 xl:gap-8 lg:text-right">
+					<div className="order-2 flex flex-col items-center gap-3 w-full max-w-md px-2 lg:order-0 lg:items-end lg:gap-2 xl:gap-3 lg:max-w-none lg:px-0">
+						<div className="h-8 xl:h-10 w-3/4 bg-white/20 rounded-md" />
+						<div className="h-4 w-full bg-white/10 rounded mt-1 xl:mt-2" />
+						<div className="h-4 w-full bg-white/10 rounded" />
+						<div className="h-4 w-5/6 bg-white/10 rounded" />
 					</div>
-				</div>
 
-				<div className="relative w-full rounded-3xl p-1 bg-linear-to-b from-black/5 to-black/10 shadow-[0_40px_80px_rgba(0,0,0,0.06)]">
-					<div className="relative w-full aspect-192/100 rounded-[1.4rem] overflow-hidden bg-(--color-rich-black)/10">
-						<div className="absolute inset-0 bg-(--color-charcoal)/10" />
-
-						<div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 space-y-4">
-							<div className="space-y-2">
-								<div className="h-2.5 w-44 rounded-full bg-white/30" />
-								<div className="h-9 sm:h-12 w-56 sm:w-72 rounded-lg bg-white/30" />
-							</div>
-
-							<div className="space-y-2 max-w-lg">
-								<div className="h-3 w-full rounded-full bg-white/20" />
-								<div className="h-3 w-11/12 rounded-full bg-white/20" />
-								<div className="h-3 w-2/3 rounded-full bg-white/20" />
-							</div>
-
-							<div className="flex gap-1.5 flex-wrap pt-2">
-								{placeholderTags.map((tag) => (
-									<div key={tag} className="h-5 w-16 rounded-md bg-white/25" />
-								))}
-							</div>
-
-							<div className="pt-6">
-								<div className="h-3 w-36 rounded-full bg-white/30" />
-							</div>
+					<div className="order-3 w-full max-w-md border-t border-b border-(--color-ivory)/15 py-5 grid grid-cols-2 px-4 mt-2 lg:order-0 lg:max-w-none lg:border-b-0 lg:border-(--color-ivory)/20 lg:py-0 lg:pt-4 xl:pt-8 lg:gap-2 xl:gap-4 lg:px-0 lg:mt-0">
+						<div className="border-r border-(--color-ivory)/10 lg:border-none flex flex-col items-center lg:items-end gap-2">
+							<div className="h-2.5 xl:h-3 w-12 xl:w-16 bg-white/10 rounded" />
+							<div className="h-5 xl:h-6 w-20 xl:w-28 bg-white/20 rounded" />
+						</div>
+						<div className="flex flex-col items-center lg:items-end gap-2">
+							<div className="h-2.5 xl:h-3 w-16 xl:w-20 bg-white/10 rounded" />
+							<div className="h-5 xl:h-6 w-28 xl:w-36 bg-white/20 rounded" />
+							<div className="h-2.5 w-14 bg-white/10 rounded" />
 						</div>
 					</div>
 
-					<div className="flex items-center justify-between px-4 sm:px-6 py-4">
-						<div className="h-9 w-9 rounded-full bg-(--color-charcoal)/10 shrink-0" />
-						<div className="flex gap-2 overflow-hidden">
-							{placeholderScreens.map((screen) => (
-								<div
-									key={screen}
-									className="h-12 w-16 rounded-lg bg-(--color-charcoal)/10 shrink-0"
-								/>
-							))}
-						</div>
-						<div className="h-9 w-9 rounded-full bg-(--color-charcoal)/10 shrink-0" />
+					<div className="order-5 flex flex-col sm:flex-row gap-3 w-full max-w-md pt-4 mt-2 lg:order-0 lg:w-full lg:max-w-none lg:justify-end lg:gap-2 xl:gap-4 lg:pt-2 xl:pt-4 lg:mt-0">
+						<div className="w-full sm:w-1/2 lg:w-35 xl:w-40 h-14 xl:h-17 bg-white/10 rounded-xl lg:rounded-full border border-white/20" />
+						<div className="w-full sm:w-1/2 lg:w-35 xl:w-40 h-14 xl:h-17 bg-white/10 rounded-xl lg:rounded-full border border-white/20" />
 					</div>
 				</div>
 
-				<div className="w-full flex items-center justify-between mt-6 px-2">
-					<div className="h-3 w-16 rounded-full bg-(--color-charcoal)/10" />
-					<div className="flex gap-1.5">
-						{placeholderDots.map((dot) => (
-							<div key={dot} />
-						))}
-					</div>
+				<div className="order-4 flex flex-col gap-4 w-full max-w-md lg:order-0 lg:absolute lg:left-2 xl:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:z-50 lg:gap-4 xl:gap-8 lg:max-w-65 xl:max-w-100 2xl:max-w-125">
+					{infoPills.map((pill, index) => {
+						const isArcEdge = index === 0 || index === 3;
+
+						return (
+							<div
+								key={pill}
+								className={`w-full bg-(--color-ivory)/95 backdrop-blur-sm px-6 py-5 rounded-2xl sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/30 flex flex-col items-center lg:justify-center gap-2 lg:gap-3 lg:px-4 xl:px-8 lg:py-4 xl:py-6 lg:h-25 xl:h-35 2xl:h-40 ${isArcEdge ? "lg:translate-x-4 xl:translate-x-10" : "lg:translate-x-0"}`}
+							>
+								<div className="h-2.5 xl:h-3 w-16 xl:w-24 bg-(--color-ruby)/20 rounded" />
+								<div className="h-4 xl:h-5 w-2/3 xl:w-3/4 bg-(--color-ruby)/30 rounded" />
+								<div className="h-3 xl:h-4 w-1/2 xl:w-2/3 bg-(--color-ruby)/20 rounded mt-0.5" />
+							</div>
+						);
+					})}
 				</div>
 			</div>
-		</main>
+		</section>
 	);
 }

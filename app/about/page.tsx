@@ -1,7 +1,18 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 
-export default async function AboutPage() {
+import AboutSkeleton from "./loading";
+
+export default function AboutPage() {
+	return (
+		<Suspense fallback={<AboutSkeleton />}>
+			<AboutContent />
+		</Suspense>
+	);
+}
+
+async function AboutContent() {
 	await new Promise((resolve) => {
 		setTimeout(() => {
 			resolve("intentional delay");
@@ -16,8 +27,8 @@ export default async function AboutPage() {
 		},
 		{
 			label: "Experience",
-			primary: "SWE Intern @ Stratpoint Technologies",
-			secondary: "Past: Designer/Analyst Intern @ DOST-PES",
+			primary: "Designer/Analyst Intern ",
+			secondary: "@ DOST-PES",
 		},
 		{
 			label: "Tech Stack",
@@ -32,19 +43,29 @@ export default async function AboutPage() {
 	];
 
 	return (
-		<section className="min-h-screen bg-(--color-ruby) w-full px-16 md:px-16 lg:px-24 pt-28 pb-30">
-			<h1 className="absolute left-0 top-13 z-0 flex w-full justify-end pr-4 text-[clamp(2rem,20vw,10rem)] font-extrabold uppercase tracking-[-0.09em] text-(--color-ivory) transform scale-y-120 origin-bottom">
-				About Me
-			</h1>
+		<section className="min-h-screen bg-(--color-ruby) w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center">
+			<div className="w-full relative flex flex-col items-center gap-5 mt-6 z-10 px-4 lg:block lg:max-w-[1600px] lg:h-187.5 xl:h-225 lg:mx-auto lg:mt-0 xl:px-16 lg:gap-0">
+				<h1 className="relative order-first lg:absolute lg:order-0 z-0 flex w-full justify-center lg:justify-end text-[clamp(3.5rem,14vw,6rem)] lg:text-[clamp(4.5rem,11.5vw,12rem)] font-extrabold uppercase tracking-[-0.06em] text-(--color-ivory) transform scale-y-120 origin-bottom pointer-events-none select-none mt-2 -mb-4 lg:mt-0 lg:mb-0 lg:right-4 xl:right-10 lg:top-5 lg:w-auto lg:whitespace-nowrap">
+					About Me
+				</h1>
 
-			{/* Desktop */}
-			<div className="hidden lg:block">
-				<div className="absolute right-10 top-80 z-30 flex w-full max-w-md flex-col gap-10 text-right text-(--color-ivory)">
-					<div className="flex flex-col gap-2">
-						<h2 className="text-2xl font-bold tracking-tight">
+				<div className="order-1 relative w-[75vw] max-w-75 aspect-4/5 lg:order-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:bottom-0 lg:top-15 lg:z-20 lg:w-[32vw] xl:w-[38vw] 2xl:w-[40vw] lg:max-w-150 lg:-ml-2 xl:-ml-5 lg:aspect-auto">
+					<Image
+						loading="eager"
+						src="/Image/KC-About.png"
+						alt="KC - Aspiring Front End Developer"
+						fill
+						sizes="(max-width: 1024px) 75vw, (max-width: 1600px) 40vw, 600px"
+						className="object-contain lg:object-bottom select-none pointer-events-none"
+					/>
+				</div>
+
+				<div className="contents lg:absolute lg:right-4 xl:right-10 lg:top-60 xl:top-80 lg:z-30 lg:flex lg:w-full lg:max-w-75 xl:max-w-105 2xl:max-w-125 lg:flex-col lg:gap-4 xl:gap-8 lg:text-right text-(--color-ivory)">
+					<div className="order-2 flex flex-col gap-2 text-center w-full max-w-md px-2 lg:order-0 lg:gap-2 xl:gap-3 lg:text-right lg:max-w-none lg:px-0">
+						<h2 className="text-xl sm:text-2xl xl:text-2xl 2xl:text-3xl font-bold tracking-tight">
 							Driven by Design. Powered by Code.
 						</h2>
-						<p className="text-base leading-relaxed opacity-90">
+						<p className="text-m sm:text-base lg:text-xs xl:text-base 2xl:text-lg leading-relaxed opacity-90">
 							I am a graduating Computer Science student at PUP Manila with a
 							growing passion for Front-End Development and UI/UX. I am actively
 							learning to build responsive, human-centric interfaces that bridge
@@ -52,177 +73,66 @@ export default async function AboutPage() {
 						</p>
 					</div>
 
-					<div className="grid grid-cols-2 gap-4 text-right border-t border-(--color-ivory)/20 pt-6">
-						<div>
-							<p className="text-[12px] font-bold uppercase tracking-widest opacity-50 mb-1">
+					<div className="order-3 w-full max-w-md border-t border-b border-(--color-ivory)/15 py-4 grid grid-cols-2 text-center px-4 lg:order-0 lg:max-w-none lg:border-b-0 lg:border-(--color-ivory)/20 lg:py-0 lg:pt-4 xl:pt-8 lg:gap-2 xl:gap-4 lg:text-right lg:px-0 lg:mt-0">
+						<div className="border-r border-(--color-ivory)/10 lg:border-none">
+							<p className="text-[11px] lg:text-[9px] xl:text-xs font-bold uppercase tracking-widest opacity-50 mb-1">
 								Based In
 							</p>
-							<p className="text-m font-semibold tracking-tight opacity-90">
-								Manila, PH
+							<p className="text-s lg:text-sm xl:text-lg 2xl:text-xl font-semibold tracking-tight opacity-90">
+								Taguig City, PH
 							</p>
 						</div>
 						<div>
-							<p className="text-[12px] font-bold uppercase tracking-widest opacity-50 mb-1">
+							<p className="text-[11px] lg:text-[9px] xl:text-xs font-bold uppercase tracking-widest opacity-50 mb-1">
 								Current Role
 							</p>
-							<p className="text-m font-semibold tracking-tight opacity-90">
+							<p className="text-s lg:text-sm xl:text-lg 2xl:text-xl font-semibold tracking-tight opacity-90">
 								Software Engineer Intern
 							</p>
-							<p className="text-xs font-bold uppercase tracking-tight opacity-50 mb-1">
+							<p className="text-[11px] lg:text-[9px] xl:text-[11px] 2xl:text-sm font-bold uppercase tracking-tight opacity-50 mb-1">
 								Stratpoint
 							</p>
 						</div>
 					</div>
 
-					<div className="flex justify-end gap-3 pt-2">
+					<div className="order-5 flex flex-col sm:flex-row gap-3 w-full max-w-md pt-2 lg:order-0 lg:w-full lg:max-w-none lg:justify-end lg:gap-2 xl:gap-4 lg:pt-2 xl:pt-4 lg:mt-0">
 						<Button
 							asChild
 							variant="ghost"
-							className="px-7 py-4.5 rounded-3xl bg-white/5 border border-(--color-ivory)/30 text-sm font-bold tracking-wide text-(--color-ivory) hover:bg-(--color-crimson) hover:border-(--color-crimson) hover:text-(--color-ivory) transition-all duration-300 active:scale-98 h-auto cursor-pointer"
+							className="w-full sm:w-1/2 lg:w-auto px-6 py-4 rounded-xl bg-white/5 border border-(--color-ivory)/25 text-sm font-bold tracking-wide text-(--color-ivory) hover:bg-(--color-crimson) hover:border-(--color-crimson) hover:text-(--color-ivory) transition-all duration-300 h-auto cursor-pointer lg:px-4 xl:px-6 2xl:px-8 lg:py-4 xl:py-6 lg:rounded-full lg:border-(--color-ivory)/30 lg:text-[10px] xl:text-sm 2xl:text-base lg:active:scale-98"
 						>
 							<a href="/projects">View My Work</a>
 						</Button>
 						<Button
 							asChild
-							className="px-7 py-4.5 rounded-3xl bg-white/5 border border-(--color-ivory)/30 text-sm font-bold tracking-wide text-(--color-ivory) hover:bg-(--color-crimson) hover:border-(--color-crimson) hover:text-(--color-ivory) transition-all duration-300 active:scale-98 h-auto cursor-pointer"
+							className="w-full sm:w-1/2 lg:w-auto px-6 py-4 rounded-xl bg-white/5 border border-(--color-ivory)/25 text-sm font-bold tracking-wide text-(--color-ivory) hover:bg-(--color-crimson) hover:border-(--color-crimson) hover:text-(--color-ivory) transition-all duration-300 h-auto cursor-pointer lg:px-4 xl:px-6 2xl:px-8 lg:py-4 xl:py-6 lg:rounded-full lg:border-(--color-ivory)/30 lg:text-[10px] xl:text-sm 2xl:text-base lg:active:scale-98"
 						>
 							<a href="/contact">Let&apos;s Talk</a>
 						</Button>
 					</div>
 				</div>
 
-				{/* Image */}
-				<Image
-					loading="eager"
-					src="/Image/KC-About.png"
-					alt="KC - Aspiring Front End Developer"
-					width={500}
-					height={500}
-					className="relative left-120 top-12 z-20"
-				/>
+				<div className="order-4 flex flex-col gap-3 w-full max-w-md lg:order-0 lg:absolute lg:left-2 xl:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:z-50 lg:gap-4 xl:gap-8 lg:max-w-65 xl:max-w-100 2xl:max-w-125">
+					{cards.map((card, index) => {
+						const isArcEdge = index === 0 || index === 3;
 
-				<div className="absolute left-35 top-40 z-50 text-center bg-(--color-ivory)/95 backdrop-blur-sm px-8 py-1 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/40 h-35 w-120 transition-transform hover:scale-105">
-					<p className="text-s font-extrabold uppercase tracking-widest text-(--color-ruby)/70 mt-10">
-						Education
-					</p>
-					<p className="text-base font-bold tracking-tight text-(--color-ruby) leading-snug">
-						Polytechnic University of the Philippines
-						<span className="block text-sm font-medium opacity-80 -mt-1">
-							Sta. Mesa, Manila
-						</span>
-					</p>
-				</div>
-				<div className="absolute left-20 top-80 z-50 text-center bg-(--color-ivory)/95 backdrop-blur-sm px-10 py-1 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/40 h-35 w-120 transition-transform hover:scale-105">
-					<p className="text-s font-extrabold uppercase tracking-widest text-(--color-ruby)/70 mt-10">
-						Experience
-					</p>
-					<p className="text-base font-bold tracking-tight text-(--color-ruby) leading-snug">
-						SWE Intern @ Stratpoint Technologies
-						<span className="block text-sm font-medium opacity-80 -mt-1">
-							Past: Designer/Analyst Intern @ DOST-PES
-						</span>
-					</p>
-				</div>
-				<div className="absolute left-20 top-120 z-50 text-center bg-(--color-ivory)/95 backdrop-blur-sm px-10 py-1 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/40 h-35 w-120 transition-transform hover:scale-105">
-					<p className="text-s font-extrabold uppercase tracking-widest text-(--color-ruby)/70 mt-10">
-						Tech Stack
-					</p>
-					<p className="text-base font-bold tracking-tight text-(--color-ruby) leading-snug">
-						HTML, CSS, JavaScript, Java, PHP
-						<span className="block text-sm font-medium opacity-80 -mt-1">
-							Other Tools: Laravel, Flask, Figma, Git
-						</span>
-					</p>
-				</div>
-				<div className="absolute left-35 top-160 z-50 text-center bg-(--color-ivory)/95 backdrop-blur-sm px-2 py-1 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/40 h-35 w-120 transition-transform hover:scale-105">
-					<p className="text-s font-extrabold uppercase tracking-widest text-(--color-ruby)/70 mt-10">
-						Interests:
-					</p>
-					<p className="text-base font-bold tracking-tight text-(--color-ruby) leading-snug">
-						UI/UX & Graphic Design, Web Development
-						<span className="block text-sm font-medium opacity-80 -mt-1">
-							Hobbies: Gaming, Photography
-						</span>
-					</p>
-				</div>
-			</div>
-
-			{/* Mobile */}
-			<div className="flex flex-col items-center gap-10 lg:hidden mt-20 relative z-10 w-full">
-				<div className="relative w-[70vw] max-w-70 aspect-4/5">
-					<Image
-						loading="eager"
-						src="/Image/KC-About.png"
-						alt="KC - Aspiring Front End Developer"
-						fill
-						className="object-contain"
-					/>
-				</div>
-
-				<div className="flex flex-col gap-3 text-center text-(--color-ivory) w-full max-w-md px-2">
-					<h2 className="text-xl sm:text-2xl font-bold tracking-tight">
-						Driven by Design. Powered by Code.
-					</h2>
-					<p className="text-m sm:text-base leading-relaxed opacity-90">
-						I am a graduating Computer Science student at PUP Manila with a
-						growing passion for Front-End Development and UI/UX. I am actively
-						learning to build responsive, human-centric interfaces that bridge
-						the gap between complex logic and beautiful aesthetics.
-					</p>
-				</div>
-
-				<div className="w-full max-w-md border-t border-b border-(--color-ivory)/15 text-(--color-ivory) py-5 grid grid-cols-2 text-center px-4">
-					<div className="border-r border-(--color-ivory)/10">
-						<p className="text-[11px] font-bold uppercase tracking-widest opacity-50 mb-1">
-							Based In
-						</p>
-						<p className="text-s font-semibold tracking-tight opacity-90">
-							Manila, PH
-						</p>
-					</div>
-					<div>
-						<p className="text-[11px] font-bold uppercase tracking-widest opacity-50 mb-1">
-							Current Role
-						</p>
-						<p className="text-s font-semibold tracking-tight opacity-90">
-							SWE Intern @ Stratpoint
-						</p>
-					</div>
-				</div>
-
-				<div className="flex flex-col gap-4 w-full max-w-md">
-					{cards.map(({ label, primary, secondary }) => (
-						<div
-							key={label}
-							className="w-full bg-(--color-ivory)/95 backdrop-blur-sm px-6 py-5 rounded-2xl sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/30 transition-transform active:scale-98"
-						>
-							<p className="text-[0.65rem] font-extrabold uppercase tracking-widest text-(--color-ruby)/70">
-								{label}
-							</p>
-							<p className="text-sm font-bold tracking-tight text-(--color-ruby) leading-snug mt-1 px-2">
-								{primary}
-								<span className="block text-xs font-medium opacity-80 mt-0.5">
-									{secondary}
-								</span>
-							</p>
-						</div>
-					))}
-				</div>
-
-				<div className="flex flex-col sm:flex-row gap-3 w-full max-w-md pt-4">
-					<Button
-						asChild
-						variant="ghost"
-						className="w-full sm:w-1/2 px-6 py-4 rounded-xl bg-white/5 border border-(--color-ivory)/25 text-sm font-bold tracking-wide text-(--color-ivory) hover:bg-(--color-crimson) hover:border-(--color-crimson) hover:text-(--color-ivory) transition-all duration-300 h-auto cursor-pointer"
-					>
-						<a href="/projects">View My Work</a>
-					</Button>
-					<Button
-						asChild
-						className="w-full sm:w-1/2 px-6 py-4 rounded-xl bg-white/5 border border-(--color-ivory)/25 text-sm font-bold tracking-wide text-(--color-ivory) hover:bg-(--color-crimson) hover:border-(--color-crimson) hover:text-(--color-ivory) transition-all duration-300 h-auto cursor-pointer"
-					>
-						<a href="/contact">Let&apos;s Talk</a>
-					</Button>
+						return (
+							<div
+								key={card.label}
+								className={`w-full bg-(--color-ivory)/95 backdrop-blur-sm px-6 py-4 sm:py-5 rounded-2xl sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/30 transition-all duration-300 active:scale-98 flex flex-col text-center lg:justify-center lg:px-4 xl:px-8 lg:py-4 xl:py-6 lg:shadow-[0_8px_30px_rgb(0,0,0,0.08)] lg:border-white/40 lg:h-25 xl:h-35 2xl:h-40 lg:hover:scale-105 lg:active:scale-100 ${isArcEdge ? "lg:translate-x-4 xl:translate-x-10" : "lg:translate-x-0"}`}
+							>
+								<p className="text-[0.65rem] font-extrabold uppercase tracking-widest text-(--color-ruby)/70 lg:text-[10px] xl:text-xs 2xl:text-sm lg:mb-1 xl:mb-2">
+									{card.label}
+								</p>
+								<p className="text-sm font-bold tracking-tight text-(--color-ruby) leading-snug mt-1 px-2 lg:px-0 lg:mt-0 lg:text-xs xl:text-base 2xl:text-lg">
+									{card.primary}
+									<span className="block text-xs font-medium opacity-80 mt-0.5 lg:text-[10px] xl:text-xs 2xl:text-sm xl:mt-1">
+										{card.secondary}
+									</span>
+								</p>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</section>
