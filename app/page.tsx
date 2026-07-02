@@ -4,7 +4,7 @@ export default async function Home() {
 	await new Promise((resolve) => {
 		setTimeout(() => {
 			resolve("intentional delay");
-		}, 500);
+		}, 5000);
 	});
 
 	return (
