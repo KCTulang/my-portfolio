@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ModeToggle } from "@/app/mode-toggle";
 
 export default function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -30,10 +31,10 @@ export default function Navbar() {
 			}`}
 		>
 			<nav
-				className={`flex w-full flex-col md:flex-row items-center justify-between text-(--color-rich-black) transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-(--color-ivory) ${
+				className={`flex w-full flex-col md:flex-row items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-ivory text-rich-black dark:bg-black dark:text-ivory ${
 					isScrolled
-						? "rounded-3xl px-6 py-3 shadow-[0_2px_8px_rgb(0,0,0,0.40)]"
-						: "px-8 py-4 shadow-[0_2px_4px_rgb(0,0,0,0.40)]"
+						? "rounded-3xl px-6 py-3 shadow-[0_2px_8px_rgb(0,0,0,0.40)] dark:shadow-[0_2px_8px_rgb(255,255,255,0.1)]"
+						: "px-8 py-4 shadow-[0_2px_4px_rgb(0,0,0,0.40)] dark:shadow-[0_2px_4px_rgb(255,255,255,0.05)]"
 				}`}
 			>
 				{/* Logo and Mobile Toggle */}
@@ -46,13 +47,13 @@ export default function Navbar() {
 						}}
 						className="text-xs font-bold tracking-[0.2em] uppercase"
 					>
-						<span className="hover:text-(--color-crimson) transition-colors duration-500">
+						<span className="hover:text-crimson tracking-widest dark:hover:text-watermelon transition-colors duration-500">
 							KC Tulang
 						</span>
 					</Link>
 					<button
 						type="button"
-						className="md:hidden p-1 text-(--color-rich-black)"
+						className="md:hidden p-1 text-rich-black dark:text-ivory"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 					>
 						{isMenuOpen ? "✕" : "☰"}
@@ -77,8 +78,8 @@ export default function Navbar() {
 									onClick={() => setIsMenuOpen(false)}
 									className={`block px-4 py-2 text-xs uppercase tracking-widest transition-all duration-300 ease-in-out ${
 										isActive
-											? "font-bold text-(--color-crimson) bg-(--color-crimson)/10 rounded-full"
-											: "font-bold text-[--color-charcoal] hover:bg-(--color-crimson)/10 hover:text-(--color-crimson) rounded-full"
+											? "font-bold text-crimson bg-crimson/10 dark:bg-watermelon/10 dark:text-watermelon rounded-full"
+											: "font-bold text-charcoal dark:text-ivory/70 hover:bg-crimson/10 hover:text-crimson dark:hover:text-watermelon rounded-full"
 									}`}
 								>
 									{item.name}
@@ -86,6 +87,10 @@ export default function Navbar() {
 							</div>
 						);
 					})}
+
+					<div className="mt-2 md:mt-0 md:ml-4">
+						<ModeToggle />
+					</div>
 				</div>
 			</nav>
 		</header>
