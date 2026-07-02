@@ -22,7 +22,7 @@ async function AboutContent() {
 	await new Promise((resolve) => {
 		setTimeout(() => {
 			resolve("intentional delay");
-		}, 500);
+		}, 5000);
 	});
 
 	return (
