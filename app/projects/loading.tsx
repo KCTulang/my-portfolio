@@ -1,6 +1,6 @@
 export default function ProjectSkeleton() {
 	const progressItems = [
-		{ id: "active-pill", className: "w-8 bg-(--color-crimson)/20" },
+		{ id: "active-pill", className: "w-8 bg-crimson/20" },
 		{ id: "pill-1", className: "w-4" },
 		{ id: "pill-2", className: "w-4" },
 		{ id: "pill-3", className: "w-4" },
@@ -16,14 +16,14 @@ export default function ProjectSkeleton() {
 	];
 
 	return (
-		<main className="min-h-screen w-full bg-(--color-ivory) relative select-none flex flex-col justify-between pt-32 pb-16 animate-pulse">
+		<main className="min-h-screen w-full bg-ivory relative select-none flex flex-col justify-between pt-32 pb-16 animate-pulse">
 			<header className="w-full max-w-362.5 mx-auto px-6 sm:px-10 md:px-16 lg:px-24 mb-6 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
 				<div className="max-w-2xl w-full flex flex-col">
-					<div className="h-3.5 w-32 bg-(--color-crimson)/20 rounded-full mb-3" />
+					<div className="h-3.5 w-32 bg-crimson/20 rounded-full mb-3" />
 
 					<div className="flex flex-wrap gap-x-3 gap-y-2 w-full items-center">
 						<div className="h-10 sm:h-14 w-64 bg-black/10 rounded-full" />
-						<div className="h-10 sm:h-14 w-32 bg-(--color-crimson)/20 rounded-full" />
+						<div className="h-10 sm:h-14 w-32 bg-crimson/20 rounded-full" />
 					</div>
 				</div>
 				<div className="flex flex-col gap-2 w-full max-w-sm">
@@ -61,7 +61,7 @@ export default function ProjectSkeleton() {
 								{tagItems.map((tag) => (
 									<div
 										key={tag.id}
-										className={`h-5 ${tag.width} rounded-full bg-(--color-crimson)/20`}
+										className={`h-5 ${tag.width} rounded-full bg-crimson/20`}
 									/>
 								))}
 							</div>
