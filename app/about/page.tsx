@@ -1,9 +1,19 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { aboutCards } from "@/data/about";
+import AboutSkeleton from "./loading";
 
-export default async function AboutPage() {
-	
+export default function AboutPage() {
+	return (
+		<Suspense fallback={<AboutSkeleton />}>
+			<AboutContent />
+		</Suspense>
+	);
+}
+
+async function AboutContent() {
+	// Intentional delay for testing the skeleton
 	await new Promise((resolve) => setTimeout(resolve, 5000));
 
 	return (
