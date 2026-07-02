@@ -57,7 +57,10 @@ function Field({
 const initialState: ContactFormState = { status: "idle", message: "" };
 
 export default function Contact() {
-	const [state, formAction] = useActionState(sendContactMessage, initialState);
+	const [state, formAction, isPending] = useActionState(
+		sendContactMessage,
+		initialState,
+	);
 
 	if (state.status === "success") {
 		return (
@@ -97,6 +100,7 @@ export default function Contact() {
 							placeholder="Your name"
 							className="rounded-xl border-charcoal/15 dark:border-white/10 bg-white dark:bg-black/40 px-4 py-6 text-sm text-(--color-rich-black) dark:text-ivory placeholder:text-charcoal/40 dark:placeholder:text-ivory/30 focus-visible:ring-2 focus-visible:ring-ruby/20 dark:focus-visible:ring-watermelon/20 focus-visible:border-ruby dark:focus-visible:border-watermelon hover:border-charcoal/30 dark:hover:border-white/20 transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.01)] dark:shadow-none"
 							aria-describedby={state.errors?.name ? "name-error" : undefined}
+							disabled={isPending}
 						/>
 					</Field>
 
@@ -109,6 +113,7 @@ export default function Contact() {
 							placeholder="you@email.com"
 							className="rounded-xl border-charcoal/15 dark:border-white/10 bg-white dark:bg-black/40 px-4 py-6 text-sm text-(--color-rich-black) dark:text-ivory placeholder:text-charcoal/40 dark:placeholder:text-ivory/30 focus-visible:ring-2 focus-visible:ring-ruby/20 dark:focus-visible:ring-watermelon/20 focus-visible:border-ruby dark:focus-visible:border-watermelon hover:border-charcoal/30 dark:hover:border-white/20 transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.01)] dark:shadow-none"
 							aria-describedby={state.errors?.email ? "email-error" : undefined}
+							disabled={isPending}
 						/>
 					</Field>
 				</div>
@@ -123,6 +128,7 @@ export default function Contact() {
 						aria-describedby={
 							state.errors?.subject ? "subject-error" : undefined
 						}
+						disabled={isPending}
 					/>
 				</Field>
 
@@ -134,6 +140,7 @@ export default function Contact() {
 						placeholder="Tell me about your project, opportunity, or just say hello."
 						className="rounded-xl border-charcoal/15 dark:border-white/10 bg-white dark:bg-black/40 px-4 py-3 text-sm text-(--color-rich-black) dark:text-ivory placeholder:text-charcoal/40 dark:placeholder:text-ivory/30 focus-visible:ring-2 focus-visible:ring-ruby/20 dark:focus-visible:ring-watermelon/20 focus-visible:border-ruby dark:focus-visible:border-watermelon hover:border-charcoal/30 dark:hover:border-white/20 resize-none transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.01)] dark:shadow-none"
 						aria-describedby={state.errors?.body ? "body-error" : undefined}
+						disabled={isPending}
 					/>
 				</Field>
 
