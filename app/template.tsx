@@ -1,10 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Transition } from "framer-motion"; 
 import { usePathname } from "next/navigation";
-import React from "react";
+import type React from "react";
 
-const sharedPhysics = { type: "spring", stiffness: 300, damping: 32 };
+const sharedPhysics: Transition = { 
+    type: "spring", 
+    stiffness: 300, 
+    damping: 32 
+};
 
 const pageVariants = {
     home: {
@@ -26,7 +30,7 @@ const pageVariants = {
     default: {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
-    }
+    },
 };
 
 export default function Template({ children }: { children: React.ReactNode }) {
