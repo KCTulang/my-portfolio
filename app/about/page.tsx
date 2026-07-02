@@ -16,7 +16,7 @@ export default function AboutPage() {
 
 async function AboutContent() {
 	// Intentional delay for testing the skeleton
-	await new Promise((resolve) => setTimeout(resolve, 5000));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 
 	return (
 		<section className="min-h-screen bg-ruby dark:bg-black w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center transition-colors duration-500">

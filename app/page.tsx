@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Suspense } from "react";
 import { Hero } from "@/components/Hero";
 import Loading from "./loading";
@@ -12,7 +14,7 @@ export default function Home() {
 
 async function HomeContent() {
 	// Intentional delay for testing the skeleton
-	await new Promise((resolve) => setTimeout(resolve, 5000));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 
 	return (
 		<div>
