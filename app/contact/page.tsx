@@ -3,7 +3,6 @@
 import { Mail } from "lucide-react";
 import Contact from "./Contact";
 
-
 export default function ContactPage() {
 	return (
 		<main className="min-h-screen w-full bg-ivory dark:bg-black transition-colors duration-500">
