@@ -53,7 +53,7 @@ export function SlideTransition({
 
 export function RevealCurtain({ children }: { children: ReactNode }) {
 	return (
-		<div className="absolute inset-0 bg-linear-to-t from-(--color-rich-black)/95 via-(--color-rich-black)/70 to-transparent opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-500 flex flex-col justify-end p-8 sm:p-12 md:p-16 text-left text-white">
+		<div className="absolute inset-0 bg-linear-to-t from-rich-black/95 via-rich-black/70 to-transparent opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-500 flex flex-col justify-end p-8 sm:p-12 md:p-16 text-left text-white">
 			<motion.div
 				initial={{ opacity: 0, y: 30 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export function CarouselControls({
 			<button
 				type="button"
 				onClick={() => navigate((currentIndex - 1 + total) % total)}
-				className="absolute -left-5 sm:-left-6 top-1/2 -translate-y-1/2 z-30 h-12 w-12 rounded-xl bg-white border-2 border-(--color-crimson) text-(--color-crimson) hover:bg-(--color-rich-black) hover:border-(--color-rich-black) hover:text-white flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.15)] transition-all duration-300 active:scale-90 cursor-pointer"
+				className="absolute -left-5 sm:-left-6 top-1/2 -translate-y-1/2 z-30 h-12 w-12 rounded-xl bg-white border-2 border-crimson text-crimson hover:bg-rich-black hover:border-rich-black hover:text-white flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.15)] transition-all duration-300 active:scale-90 cursor-pointer"
 				aria-label={`Go to previous project: ${projectIds[(currentIndex - 1 + total) % total]}`}
 			>
 				<ChevronLeft className="h-6 w-6 stroke-[2.5]" />
@@ -104,7 +104,7 @@ export function CarouselControls({
 			<button
 				type="button"
 				onClick={() => navigate((currentIndex + 1) % total)}
-				className="absolute -right-5 sm:-right-6 top-1/2 -translate-y-1/2 z-30 h-12 w-12 rounded-xl bg-white border-2 border-(--color-crimson) text-(--color-crimson) hover:bg-(--color-rich-black) hover:border-(--color-rich-black) hover:text-white flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.15)] transition-all duration-300 active:scale-90 cursor-pointer"
+				className="absolute -right-5 sm:-right-6 top-1/2 -translate-y-1/2 z-30 h-12 w-12 rounded-xl bg-white border-2 border-crimson text-crimson hover:bg-rich-black hover:border-rich-black hover:text-white flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.15)] transition-all duration-300 active:scale-90 cursor-pointer"
 				aria-label={`Go to next project: ${projectIds[(currentIndex + 1) % total]}`}
 			>
 				<ChevronRight className="h-6 w-6 stroke-[2.5]" />
@@ -130,8 +130,8 @@ export function ProgressPills({
 					}
 					className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
 						idx === currentIndex
-							? "w-6 bg-(--color-crimson)"
-							: "w-1.5 bg-(--color-crimson)/20 hover:bg-(--color-crimson)/40"
+							? "w-6 bg-crimson"
+							: "w-1.5 bg-crimson/20 hover:bg-crimson/40"
 					}`}
 					aria-label={`Jump to project module: ${id}`}
 				/>

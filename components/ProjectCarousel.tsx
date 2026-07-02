@@ -41,7 +41,8 @@ export function ProjectCarousel({ images, projectName }: ProjectCarouselProps) {
 					width={192}
 					height={100}
 					priority
-					className="object-cover w-full h-auto max-h-126"
+					sizes="100vw"
+					className="w-full h-auto object-cover max-h-126"
 				/>
 			</div>
 		);
@@ -60,11 +61,13 @@ export function ProjectCarousel({ images, projectName }: ProjectCarouselProps) {
 						<CarouselItem key={src}>
 							<div className="rounded-2xl overflow-hidden bg-(--color-rich-black)">
 								<Image
-									src={src}
-									alt={`${projectName} interface capture`}
+									src={images[0] || "/Projects/placeholder.png"}
+									alt={`${projectName} master capture`}
 									width={896}
 									height={504}
-									className="object-cover w-full h-auto max-h-126"
+									priority
+									sizes="(max-width: 768px) 100vw, 896px"
+									className="w-full h-auto object-cover"
 								/>
 							</div>
 						</CarouselItem>
