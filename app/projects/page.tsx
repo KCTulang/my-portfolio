@@ -11,58 +11,8 @@ import {
 } from "@/components/ShowcaseClient";
 import { Button } from "@/components/ui/button";
 
+import { projects } from "@/data/projects";
 import ProjectSkeleton from "./loading";
-
-interface Project {
-	id: string;
-	name: string;
-	description: string;
-	tags: string[];
-	images: string[];
-}
-
-const projects: Project[] = [
-	{
-		id: "labpup",
-		name: "LabPUP",
-		description:
-			"A web-based laboratory scheduling and management system developed for the PUP College of Computer and Information Sciences...",
-		tags: ["CSS", "HTML", "JavaScript", "MySQL", "PHP"],
-		images: ["/Projects/LabPUP1.png"],
-	},
-	{
-		id: "lp",
-		name: "licenSUREpro",
-		description:
-			"A web-based licensing application management system designed for the Professional Regulation Commission (PRC)...",
-		tags: ["CSS", "HTML", "JavaScript", "MySQL", "PHP"],
-		images: ["/Projects/LP1.png"],
-	},
-	{
-		id: "ms",
-		name: "MindSweeper Kitties",
-		description:
-			"A competitive grid deduction game that introduces a strategic twist to classic board mechanics...",
-		tags: ["Flask", "HTML", "JavaScript", "Python"],
-		images: ["/Projects/MS1.png"],
-	},
-	{
-		id: "pluma",
-		name: "Pluma",
-		description:
-			"An intelligent Grammar Error Correction (GEC) system designed specifically for the Filipino language...",
-		tags: ["Machine Learning", "NLP", "NMT", "Python", "PyTorch"],
-		images: ["/Projects/Pluma1.png"],
-	},
-	{
-		id: "pt",
-		name: "Philippine Tourism Proposed UI",
-		description:
-			"A high-fidelity Figma interface conceptualization for the Department of Tourism (DOT) website...",
-		tags: ["Figma", "UI/UX", "Wireframing"],
-		images: ["/Projects/PT1.png"],
-	},
-];
 
 interface PageProps {
 	searchParams: Promise<{ active?: string; view?: string }>;
@@ -106,18 +56,26 @@ async function ProjectsContent({ searchParams }: PageProps) {
 						experiments I have developed.
 					</p>
 
-					<div className="flex items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-xl transition-colors">
+					<div className="flex items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-xl transition-colors w-full max-w-sm mx-auto">
 						<Link
 							href="?view=showcase"
 							scroll={false}
-							className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg transition-all duration-300 ${view === "showcase" ? "bg-white dark:bg-white/10 text-crimson dark:text-watermelon shadow-sm" : "text-charcoal/60 dark:text-ivory/50 hover:text-charcoal dark:hover:text-ivory/90"}`}
+							className={`flex-1 text-center px-3 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-lg transition-all duration-300 active:scale-95 ${
+								view === "showcase"
+									? "bg-white dark:bg-white/10 text-crimson dark:text-watermelon shadow-sm"
+									: "text-charcoal/60 dark:text-ivory/50 hover:text-charcoal dark:hover:text-ivory/90"
+							}`}
 						>
 							Showcase
 						</Link>
 						<Link
 							href="?view=grid"
 							scroll={false}
-							className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg transition-all duration-300 ${view === "grid" ? "bg-white dark:bg-white/10 text-crimson dark:text-watermelon shadow-sm" : "text-charcoal/60 dark:text-ivory/50 hover:text-charcoal dark:hover:text-ivory/90"}`}
+							className={`flex-1 text-center px-3 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-lg transition-all duration-300 active:scale-95 ${
+								view === "grid"
+									? "bg-white dark:bg-white/10 text-crimson dark:text-watermelon shadow-sm"
+									: "text-charcoal/60 dark:text-ivory/50 hover:text-charcoal dark:hover:text-ivory/90"
+							}`}
 						>
 							Grid View
 						</Link>
