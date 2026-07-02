@@ -22,6 +22,8 @@ export default function ErrorPage({
 			<div className="space-y-6 max-w-xl">
 				<div className="flex justify-center mb-4">
 					<Image
+						loading="eager"
+						unoptimized
 						src="/error.gif"
 						alt="A cute error illustration"
 						width={1000}
