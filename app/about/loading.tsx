@@ -2,7 +2,7 @@ export default function AboutSkeleton() {
 	const infoPills = ["pill-1", "pill-2", "pill-3", "pill-4"];
 
 	return (
-		<section className="min-h-screen bg-(--color-ruby) w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center select-none animate-pulse">
+		<section className="min-h-screen bg-ruby w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center select-none animate-pulse">
 			<div className="w-full relative flex flex-col items-center gap-8 mt-10 z-10 px-4 lg:block lg:max-w-[1600px] lg:h-187.5 xl:h-225 lg:mx-auto lg:mt-0 xl:px-16 lg:gap-0">
 				<div className="relative order-first lg:absolute lg:order-0 z-0 flex w-full justify-center lg:justify-end mt-4 mb-2 lg:mt-0 lg:mb-0 lg:right-4 xl:right-10 lg:top-5 lg:w-auto">
 					<div className="h-[clamp(3.5rem,14vw,6rem)] lg:h-[clamp(4.5rem,11.5vw,12rem)] w-[60vw] lg:w-100 xl:w-150 bg-white/10 rounded-xl transform scale-y-120 origin-bottom" />
@@ -18,8 +18,8 @@ export default function AboutSkeleton() {
 						<div className="h-4 w-5/6 bg-white/10 rounded" />
 					</div>
 
-					<div className="order-3 w-full max-w-md border-t border-b border-(--color-ivory)/15 py-5 grid grid-cols-2 px-4 mt-2 lg:order-0 lg:max-w-none lg:border-b-0 lg:border-(--color-ivory)/20 lg:py-0 lg:pt-4 xl:pt-8 lg:gap-2 xl:gap-4 lg:px-0 lg:mt-0">
-						<div className="border-r border-(--color-ivory)/10 lg:border-none flex flex-col items-center lg:items-end gap-2">
+					<div className="order-3 w-full max-w-md border-t border-b border-ivory/15 py-5 grid grid-cols-2 px-4 mt-2 lg:order-0 lg:max-w-none lg:border-b-0 lg:border-ivory/20 lg:py-0 lg:pt-4 xl:pt-8 lg:gap-2 xl:gap-4 lg:px-0 lg:mt-0">
+						<div className="border-r border-ivory/10 lg:border-none flex flex-col items-center lg:items-end gap-2">
 							<div className="h-2.5 xl:h-3 w-12 xl:w-16 bg-white/10 rounded" />
 							<div className="h-5 xl:h-6 w-20 xl:w-28 bg-white/20 rounded" />
 						</div>
@@ -43,11 +43,11 @@ export default function AboutSkeleton() {
 						return (
 							<div
 								key={pill}
-								className={`w-full bg-(--color-ivory)/95 backdrop-blur-sm px-6 py-5 rounded-2xl sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/30 flex flex-col items-center lg:justify-center gap-2 lg:gap-3 lg:px-4 xl:px-8 lg:py-4 xl:py-6 lg:h-25 xl:h-35 2xl:h-40 ${isArcEdge ? "lg:translate-x-4 xl:translate-x-10" : "lg:translate-x-0"}`}
+								className={`w-full bg-ivory/95 backdrop-blur-sm px-6 py-5 rounded-2xl sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/30 flex flex-col items-center lg:justify-center gap-2 lg:gap-3 lg:px-4 xl:px-8 lg:py-4 xl:py-6 lg:h-25 xl:h-35 2xl:h-40 ${isArcEdge ? "lg:translate-x-4 xl:translate-x-10" : "lg:translate-x-0"}`}
 							>
-								<div className="h-2.5 xl:h-3 w-16 xl:w-24 bg-(--color-ruby)/20 rounded" />
-								<div className="h-4 xl:h-5 w-2/3 xl:w-3/4 bg-(--color-ruby)/30 rounded" />
-								<div className="h-3 xl:h-4 w-1/2 xl:w-2/3 bg-(--color-ruby)/20 rounded mt-0.5" />
+								<div className="h-2.5 xl:h-3 w-16 xl:w-24 bg-ruby/20 rounded" />
+								<div className="h-4 xl:h-5 w-2/3 xl:w-3/4 bg-ruby/30 rounded" />
+								<div className="h-3 xl:h-4 w-1/2 xl:w-2/3 bg-ruby/20 rounded mt-0.5" />
 							</div>
 						);
 					})}
