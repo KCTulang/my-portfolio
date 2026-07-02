@@ -119,14 +119,14 @@ const projects: Project[] = [
 ];
 
 interface PageProps {
-	params: Promise<{ id: string }>;
+	params: Promise<{ slug: string }>;
 }
 
 export default async function ProjectDetailsPage({ params }: PageProps) {
-	const { id } = await params;
+	const { slug } = await params;
 
 	const currentIndex = projects.findIndex(
-		(p) => p.id.toLowerCase() === id.toLowerCase(),
+		(p) => p.id.toLowerCase() === slug.toLowerCase(),
 	);
 
 	if (currentIndex === -1) {
@@ -159,11 +159,11 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
 					</p>
 
 					<div className="relative">
-						<div className="absolute -right-2.5 -top-5 font-mono text-[clamp(100px,18vw,180px)] font-black text-transparent leading-none select-none pointer-events-none tracking-[-0.04em] [-webkit-text-stroke:1.5px_rgba(196,30,58,0.12)] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] dark:[-webkit-text-stroke:1.5px_rgba(255,107,107,0.15)] transition-colors duration-500 dark:drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.8)]">
+						<div className="absolute -right-2.5 -top-5 font-mono text-[clamp(100px,18vw,180px)] font-black text-transparent leading-none select-none pointer-events-none tracking-[-0.04em] [-webkit-text-stroke:1.5px_rgba(196,30,58,0.12)] dark:[-webkit-text-stroke:1.5px_rgba(255,107,107,0.15)] transition-colors duration-500">
 							{project.num}
 						</div>
 
-						<h1 className="font-mono text-[clamp(32px,6vw,64px)] font-black  tracking-tight text-rich-black dark:text-ivory relative z-10 pb-6 wrap-break-word transition-colors">
+						<h1 className="font-mono text-[clamp(32px,6vw,64px)] font-black tracking-tight text-rich-black dark:text-ivory relative z-10 pb-6 wrap-break-word transition-colors">
 							{project.name}
 						</h1>
 					</div>
@@ -243,8 +243,9 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
 							</h3>
 							<ul className="flex flex-col gap-1 list-none m-0 p-0">
 								{projects.map((proj) => {
+									// 4. Update the active check to use 'slug'
 									const isTargetActive =
-										proj.id.toLowerCase() === id.toLowerCase();
+										proj.id.toLowerCase() === slug.toLowerCase();
 									return (
 										<li key={`index-${proj.id}`}>
 											<Link

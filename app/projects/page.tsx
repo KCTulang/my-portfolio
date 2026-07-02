@@ -93,9 +93,9 @@ async function ProjectsContent({ searchParams }: PageProps) {
 						Selected Works
 					</p>
 					<h1 className="text-4xl sm:text-6xl font-black text-(--color-rich-black) dark:text-ivory tracking-tight leading-none transition-colors">
-						Things I&apos;ve{" "}
+						My {""}
 						<span className="text-crimson dark:text-watermelon transition-colors">
-							built
+							Projects
 						</span>
 					</h1>
 				</div>
