@@ -1,5 +1,7 @@
 "use server";
 
+import { Resend } from "resend";
+
 export interface ContactFormState {
 	status: "idle" | "success" | "error";
 	message: string;
@@ -40,15 +42,27 @@ export async function sendContactMessage(
 		return { status: "error", message: "Please fix the errors below.", errors };
 	}
 
-	// --- Send email (swap in your preferred provider) ---
-	// Example: Resend, Nodemailer, Formspree, etc.
-	// await resend.emails.send({ from: "...", to: "you@email.com", subject, html: `...` });
+	// --- Sending Email ---
+	const resend = new Resend(process.env.RESEND_API_KEY);
 
-	// Simulate network delay in development
-	await new Promise((r) => setTimeout(r, 800));
+	try {
+		await resend.emails.send({
+			from: "onboarding@resend.dev",
+			to: ["kctulang10@gmail.com"],
+			replyTo: email,
+			subject: `Portfolio Contact: ${subject}`,
+			text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${body}`,
+		});
 
-	return {
-		status: "success",
-		message: "Message sent! I'll get back to you soon.",
-	};
+		return {
+			status: "success",
+			message: "Message sent! I'll get back to you soon.",
+		};
+	} catch (error) {
+		console.error("Resend API Error:", error);
+		return {
+			status: "error",
+			message: "Failed to send message. Please try again later.",
+		};
+	}
 }

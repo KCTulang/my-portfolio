@@ -5,11 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-	--color-rich-black: #080705;
-	--color-charcoal: #40434e;
-	--color-ruby: #702632;
-	--color-crimson: #912f40;
-	--color-ivory: #fffffa;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
@@ -62,6 +57,14 @@
 }
 
 @theme inline {
+	--color-rich-black: #080705;
+	--color-charcoal: #40434e;
+	--color-ruby: #702632;
+	--color-crimson: #912f40;
+	--color-ivory: #fffffa;
+	--color-watermelon: #ff6b6b;
+	--color-watermelon-soft: rgba(255, 107, 107, 0.1);
+
 	--font-heading: var(--font-sans);
 	--font-sans: var(--font-sans);
 	--color-sidebar-ring: var(--sidebar-ring);
