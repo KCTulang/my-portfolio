@@ -1,6 +1,9 @@
 import Image from "next/image";
+
 import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
+import { aboutCards } from "@/data/about";
+
 import AboutSkeleton from "./loading";
 
 export default function AboutPage() {
@@ -21,29 +24,6 @@ async function AboutContent() {
 			resolve("intentional delay");
 		}, 500);
 	});
-
-	const cards = [
-		{
-			label: "Education",
-			primary: "Polytechnic University of the Philippines",
-			secondary: "Sta. Mesa, Manila",
-		},
-		{
-			label: "Experience",
-			primary: "Designer/Analyst Intern ",
-			secondary: "@ DOST-PES",
-		},
-		{
-			label: "Tech Stack",
-			primary: "HTML, CSS, JavaScript, Java, PHP",
-			secondary: "Other Tools: Laravel, Flask, Figma, Git",
-		},
-		{
-			label: "Interests",
-			primary: "UI/UX & Graphic Design, Web Development",
-			secondary: "Hobbies: Gaming, Photography, Coffee Making",
-		},
-	];
 
 	return (
 		<section className="min-h-screen bg-ruby dark:bg-black w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center transition-colors duration-500">
@@ -117,7 +97,7 @@ async function AboutContent() {
 				</div>
 
 				<div className="order-4 flex flex-col gap-3 w-full max-w-md lg:order-0 lg:absolute lg:left-2 xl:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:z-50 lg:gap-4 xl:gap-8 lg:max-w-65 xl:max-w-100 2xl:max-w-125">
-					{cards.map((card, index) => {
+					{aboutCards.map((card, index) => {
 						const isArcEdge = index === 0 || index === 3;
 
 						return (
