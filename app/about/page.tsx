@@ -1,25 +1,10 @@
 import Image from "next/image";
-
-import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { aboutCards } from "@/data/about";
 
-import AboutSkeleton from "./loading";
-
-export default function AboutPage() {
-	return (
-		<Suspense fallback={<AboutSkeleton />}>
-			<AboutContent />
-		</Suspense>
-	);
-}
-
-async function AboutContent() {
-	{
-		/* throw new Error("This is a manual test to check the error boundary!"); For error testing */
-	}
-
-	await new Promise((resolve) => setTimeout(resolve, 500));
+export default async function AboutPage() {
+	
+	await new Promise((resolve) => setTimeout(resolve, 2000));
 
 	return (
 		<section className="min-h-screen bg-ruby dark:bg-black w-full pt-10 pb-10 relative overflow-hidden flex items-center justify-center transition-colors duration-500">
